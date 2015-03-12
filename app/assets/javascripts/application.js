@@ -21,7 +21,9 @@ $(function(){
 $( ".idv-item" ).draggable({ revert: 'invalid' });
 $(".suitcase-items").droppable({ accept: ".idv-item",
 
+
  drop: function(event, ui){
+  $.ui.ddmanager.current.cancelHelperRemoval = true;
  var draggableId = ui.draggable.attr("data-weight");
  console.log(draggableId)
     $(this)
@@ -33,5 +35,5 @@ $(".suitcase-items").droppable({ accept: ".idv-item",
 
   }
 })  
-// $( ".idv-item").draggable({helper: 'clone'});
+$( ".idv-item").draggable({helper: 'clone'});
 })
