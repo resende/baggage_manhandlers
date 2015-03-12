@@ -54,3 +54,11 @@ max-width: 75px;
 
 }
 
+.suitcase-items {
+
+height: 120px; 
+width: 119px;
+border: 1px solid white; 
+display: inline-block;
+
+}
