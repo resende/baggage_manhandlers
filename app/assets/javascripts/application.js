@@ -19,14 +19,11 @@
 $(function(){
 
 $( ".idv-item" ).draggable({ revert: 'invalid' });
+$(".suitcase-items").droppable({ accept: ".idv-item",
 
-$(".suitcase-items").droppable({ 
-  accept: ".idv-item",
-
-  drop: function(event, ui){
-
-    var draggableId = ui.draggable.attr("data-weight");
-     console.log(draggableId)
+ drop: function(event, ui){
+ var draggableId = ui.draggable.attr("data-weight");
+ console.log(draggableId)
     $(this)
     .toggleClass("highlight")
    
