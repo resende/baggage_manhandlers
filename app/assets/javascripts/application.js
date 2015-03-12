@@ -17,10 +17,14 @@
 //= require jquery-ui
 
 $(function(){
-$( ".idv-item").draggable();
 
-$(".suitcase-items").droppable({
+$( ".idv-item" ).draggable({ revert: 'invalid' });
+
+$(".suitcase-items").droppable({ 
+  accept: ".idv-item",
+
   drop: function(event, ui){
+
     var draggableId = ui.draggable.attr("data-weight");
      console.log(draggableId)
     $(this)
@@ -29,7 +33,8 @@ $(".suitcase-items").droppable({
   var total = parseInt($(".total-weight").text()) 
   total += parseInt(draggableId)
   $(".total-weight").text(total)
-  }
-})
 
+  }
+})  
+// $( ".idv-item").draggable({helper: 'clone'});
 })
