@@ -24,6 +24,9 @@ background-color: hotpink
 
 height: 50px; 
 width: 50px; 
+max-width: 75px; 
+float: left; 
+
 
 }
 
@@ -33,3 +36,21 @@ img {
   width: 50px; 
 
 }
+
+.suitcase
+
+{
+  border: 1px solid white; 
+  height: 500px; 
+  width: 500px; 
+  display: inline-block;
+  margin-left: 50px;
+
+}
+
+.all-items {
+
+max-width: 75px; 
+
+}
+
