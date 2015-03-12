@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ /*
+ /*= require jquery-ui
+ */ 
 
 body {
 
@@ -75,3 +78,13 @@ border: 1px solid white;
 display: inline-block;
 
 }
+
+.highlight {
+
+background-color: green;
+}
+/*body {
+
+background-color: hotpink;
+
+}*/

@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery-ui
+
+$(function(){
+$( ".idv-item").draggable();
+
+$(".suitcase-items").droppable({
+  drop: function(event, ui){
+    var draggableId = ui.draggable.attr("data-weight");
+     var droppableId = $(this).attr("data-weight");
+     console.log(draggableId)
+    $(this)
+    .toggleClass("highlight")
+    // console.log(weight)
+  }
+})
+
+})
