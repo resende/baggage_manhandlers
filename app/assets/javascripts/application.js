@@ -16,24 +16,43 @@
 //= require_tree .
 //= require jquery-ui
 
+
+
 $(function(){
 
+var original = false 
+$( ".idv-item" ).mousedown(function(){
+  original = true; 
+  clicked = $(this)
+  console.log(clicked)
+  })
+
+
 $( ".idv-item" ).draggable({ revert: 'invalid' });
+$( ".idv-item").draggable({helper: 'clone'});
 $(".suitcase-items").droppable({ accept: ".idv-item",
 
 
  drop: function(event, ui){
-  $.ui.ddmanager.current.cancelHelperRemoval = true;
+  // $.ui.ddmanager.current.cancelHelperRemoval = true;
+ if(original){
+  ui.helper.removeClass("ui-draggable-dragging");
+ var newDiv = $(ui.helper).clone().removeClass('ui-draggable-dragging');
+             newDiv.draggable();
+             $(this).append(newDiv);
+             original = false;
+        }
  var draggableId = ui.draggable.attr("data-weight");
- console.log(draggableId)
     $(this)
     .toggleClass("highlight")
-   
   var total = parseInt($(".total-weight").text()) 
   total += parseInt(draggableId)
   $(".total-weight").text(total)
+  clicked.data('weight', "0")
+console.log(clicked.data('weight'))
+console.log(ui.draggable.attr("data-weight", "0"))
 
   }
 })  
-$( ".idv-item").draggable({helper: 'clone'});
+
 })
