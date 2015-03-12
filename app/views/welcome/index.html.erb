@@ -4,7 +4,8 @@
 <% @items.each do |item| %> 
 <div class="idv-item"> 
 <%= item.name %>
-<%= item.weight %>  
+<%= item.weight %>
+<%= image_tag item.image %>    
 </div>
 <% end %> 
 
