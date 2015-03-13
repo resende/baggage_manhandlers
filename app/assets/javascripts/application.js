@@ -30,12 +30,17 @@ $( ".idv-item" ).mousedown(function(){
 
 
 
-$( ".idv-item" ).draggable({ revert: 'invalid' });
-$( ".idv-item").draggable({helper: 'clone'});
+$( ".idv-item" ).draggable({ revert: 'invalid', helper: 'clone' });
+                             // helper: 'clone'});
+
+
+
+// $( ".idv-item").draggable({helper: 'clone'});
 $(".suitcase-items").droppable({ accept: ".idv-item",
 
 
  drop: function(event, ui){
+
  // if(original){
  //  ui.helper.removeClass("ui-draggable-dragging");
  // var newDiv = $(ui.helper).removeClass('ui-draggable-dragging');
@@ -46,13 +51,16 @@ $(".suitcase-items").droppable({ accept: ".idv-item",
  //             original = false;
  //        }
  var draggableId = ui.draggable.attr("data-weight");
-    $(this).toggleClass("highlight")
+ var a = ui.draggable.clone(); 
+      $(this).append(a);
+    // $(this).toggleClass("highlight")
 
   var total = parseInt($(".total-weight").text()) 
   total += parseInt(draggableId)
   $(".total-weight").text(total)
   ui.draggable.attr("data-weight", "0")
- 
+  // ui.draggable.appendTo($(this)); 
+
 
   }
 })  
