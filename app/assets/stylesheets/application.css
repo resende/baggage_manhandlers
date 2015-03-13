@@ -20,6 +20,7 @@
 body {
 
 background-image: url(paperbackground.jpg);
+font-family: 'Economica', sans-serif;
 
 }
 .suitcase {
@@ -50,8 +51,8 @@ float: left;
 
 img {
 
-  height: 120px; 
-  width: 120px; 
+  height: 80px; 
+  width: 80px; 
 
 }
 
@@ -64,6 +65,7 @@ img {
   display: inline-block;
   margin-left: 50px;
   padding: 100px; 
+ 
 
 }
 
@@ -83,6 +85,11 @@ display: inline-block;
 
 }
 
+h2 {
+
+font-size: 52px; 
+
+}
 /*.highlight {
 
 background-color: green;

@@ -43,6 +43,7 @@ $(function(){
   getAirlines(baggageAllowance);
   $('.airline-select').on('change', function(){
     selectedAirline = $(this).find(':selected').text();
+    $('#limit').text('Your allowance with '+selectedAirline+' is '+baggageAllowance[selectedAirline]+'kg!');
   });
 
   var original = false;
@@ -53,24 +54,33 @@ $(function(){
   });
 
 
+
+
   $( ".idv-item" ).draggable({ revert: 'invalid', helper: 'clone' });
     
   $(".suitcase-items").droppable({ 
     accept: ".idv-item",
     drop: function(event, ui) {
       var draggableId = ui.draggable.attr("data-weight");
+      var total = parseInt($(".total-weight").text());
+      console.log(total)
+      if ((total + parseInt(draggableId)) > baggageAllowance[selectedAirline]) {
+        $('#warning').text('Your baggage allowance with '+selectedAirline+' is '+baggageAllowance[selectedAirline]+'kg!');
+      } else {
+  
+       
+      // var draggableId = ui.draggable.attr("data-weight");
       var a = ui.draggable.clone(); 
       $(this).append(a);
    
       if(ui.draggable.parent()[0] != 'all-items') {
         console.log($(this.firstChild).data("weight"))
-        var total = parseInt($(".total-weight").text()) 
+
         total += parseInt(draggableId)
-        if (total > baggageAllowance[selectedAirline]) {
-          $('#warning').text('Your baggage allowance with '+selectedAirline+' is '+baggageAllowance[selectedAirline]+'kg!');
-        } else {
-          $(".total-weight").text(total);
-          $(this.firstChild).data("weight", 0)        
+        
+        $(".total-weight").text(total);
+        $(this.firstChild).data("weight", 0)  
+
         }
       }
     }
