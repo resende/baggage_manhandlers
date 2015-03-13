@@ -13,59 +13,76 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery-ui
+//= require_tree .
 
+var baggageAllowance = {
+  "Cathay Pacific Airways": 30,
+  "Singapore Airlines":40,
+  "Qantas Airways":50,
+  "British Airways":64,
+  "Swiss":64,
+  "Virgin Atlantic":30,
+  "Air France":64,
+  "South African Airways":64,
+  "Japan Airlines":96,
+  "Hong Kong Airlines": 30
+};
+
+var selectedAirline;
+
+function getAirlines(baggageAllowance){
+  $.each(baggageAllowance, function(airline, weightAllowance){
+    $('<option value="'+ airline +'">'+ airline +'</option>').appendTo('.airline-select');
+  });
+}
 
 
 $(function(){
 
+  getAirlines(baggageAllowance);
+  $('.airline-select').on('change', function(){
+    selectedAirline = $(this).find(':selected').text();
+  });
 
-var original = false 
-$( ".idv-item" ).mousedown(function(){
-  original = true; 
-  clicked = $(this)
-  console.log(clicked)
-  })
-
-
-
-$( ".idv-item" ).draggable({ revert: 'invalid', helper: 'clone' });
-                             // helper: 'clone'});
-
+  var original = false;
+  $( ".idv-item" ).mousedown(function(){
+    original = true; 
+    clicked = $(this)
+    console.log(clicked)
+  });
 
 
-// $( ".idv-item").draggable({helper: 'clone'});
-$(".suitcase-items").droppable({ accept: ".idv-item",
-
-
- drop: function(event, ui){
-
- // if(original){
- //  ui.helper.removeClass("ui-draggable-dragging");
- // var newDiv = $(ui.helper).removeClass('ui-draggable-dragging');
- //             newDiv.draggable();
- //             console.log(newDiv)
- //             console.log($(this))
- //             // $('.all-items').append(newDiv);
- //             original = false;
- //        }
- var draggableId = ui.draggable.attr("data-weight");
- var a = ui.draggable.clone(); 
+  $( ".idv-item" ).draggable({ revert: 'invalid', helper: 'clone' });
+    
+  $(".suitcase-items").droppable({ 
+    accept: ".idv-item",
+    drop: function(event, ui) {
+      var draggableId = ui.draggable.attr("data-weight");
+      var a = ui.draggable.clone(); 
       $(this).append(a);
-    // $(this).toggleClass("highlight")
+   
+      if(ui.draggable.parent()[0] != 'all-items') {
+        console.log($(this.firstChild).data("weight"))
+        var total = parseInt($(".total-weight").text()) 
+        total += parseInt(draggableId)
+        if (total > baggageAllowance[selectedAirline]) {
+          $('#warning').text('Your baggage allowance with '+selectedAirline+' is '+baggageAllowance[selectedAirline]+'kg!');
+        } else {
+          $(".total-weight").text(total);
+          $(this.firstChild).data("weight", 0)        
+        }
+      }
+    }
+  });
+}); 
 
-  var total = parseInt($(".total-weight").text()) 
-  total += parseInt(draggableId)
-  $(".total-weight").text(total)
-  ui.draggable.attr("data-weight", "0")
-  // ui.draggable.appendTo($(this)); 
 
 
-  }
-})  
+// loop thru baggageAllowance and get the keys
+// put the keys in a dropdown on the page
+// store the selected_key
+// use baggageAllowance[selected_key] to retreive the baggage allowance
 
-})
 
-
-// .clone()
+//////// gauge 

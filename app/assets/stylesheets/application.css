@@ -27,6 +27,7 @@ background-image: url(paperbackground.jpg);
 background-image: url(suitcase2.png);
 /*background-repeat: no-repeat;*/
 background-size: cover; 
+padding-left: 10px;
 
 }
 
@@ -38,8 +39,9 @@ background-size: cover;
 
 .idv-item {
 
-height: 50px; 
-width: 50px; 
+padding-left: 50px; 
+height: 70px; 
+width: 70px; 
 max-width: 75px; 
 float: left; 
 
@@ -48,19 +50,20 @@ float: left;
 
 img {
 
-  height: 50px; 
-  width: 50px; 
+  height: 120px; 
+  width: 120px; 
 
 }
 
 .suitcase
 
 {
-  border: 1px solid white; 
+/*  border: 1px solid white; */
   height: 500px; 
   width: 500px; 
   display: inline-block;
   margin-left: 50px;
+  padding: 100px; 
 
 }
 
@@ -72,19 +75,23 @@ max-width: 75px;
 
 .suitcase-items {
 
-height: 120px; 
-width: 119px;
-border: 1px solid white; 
+height: 90px; 
+width: 90px;
+/*border: 1px solid white; */
 display: inline-block;
+/*margin: 50px; */
 
 }
 
-.highlight {
+/*.highlight {
 
 background-color: green;
-}
+}*/
 /*body {
 
 background-color: hotpink;
 
 }*/
+
+
+

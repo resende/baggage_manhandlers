@@ -1,35 +1,41 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1></h1>
 <!-- <div class="wrapper"> -->
+<select name="airline-select" class="airline-select">
+ <option name="default">--Please select a country--</option>
+</select>
+<p id='warning'></p>
+
 
 <h3> Your weight is:</h3>
 <h2 class="total-weight"> 0 </h2>
+
 <div class="all-items">
-
-<% @items.each do |item| %> 
-<div class="idv-item" data-weight="<%= item.weight %>"> 
-<%= image_tag item.image %>
-
+  <% @items.each do |item| %> 
+  <div class="idv-item" data-weight="<%= item.weight %>"> 
+  <%= image_tag item.image %>
 </div>
+
 <% end %> 
-</div>
-<div class="suitcase">
+  </div>
+    <div class="suitcase">
+        <div class="suitcase-items" id="one"></div>
+        <div class="suitcase-items"id="two"></div>
+        <div class="suitcase-items" id="three"></div>
+        <div class="suitcase-items" id="four"></div>
+        <div class="suitcase-items" id="five"></div>
+        <div class="suitcase-items" id="six"></div>
+        <div class="suitcase-items" id="seven"></div>
+        <div class="suitcase-items" id="eight"></div>
+        <div class="suitcase-items" id="nine"></div>
+        <div class="suitcase-items" id="ten"></div>
+        <div class="suitcase-items" id="eleven"></div>
+        <div class="suitcase-items" id="twelve"></div>
+        <div class="suitcase-items" id="thirteen"></div>
+        <div class="suitcase-items" id="fourteen"></div>
+        <div class="suitcase-items" id="fifteen"></div>
+        <div class="suitcase-items" id="sixteen"></div>
+    </div> 
 
-  <div class="suitcase-items" id="one"></div>
-  <div class="suitcase-items"id="two"></div>
-  <div class="suitcase-items" id="three"></div>
-  <div class="suitcase-items" id="four"></div>
-  <div class="suitcase-items" id="five"></div>
-  <div class="suitcase-items" id="six"></div>
-  <div class="suitcase-items" id="seven"></div>
-  <div class="suitcase-items" id="eight"></div>
-  <div class="suitcase-items" id="nine"></div>
-  <div class="suitcase-items" id="ten"></div>
-  <div class="suitcase-items" id="eleven"></div>
-  <div class="suitcase-items" id="twelve"></div>
-  <div class="suitcase-items" id="thirteen"></div>
-  <div class="suitcase-items" id="fourteen"></div>
-  <div class="suitcase-items" id="fifteen"></div>
-  <div class="suitcase-items" id="sixteen"></div>
-</div> 
+  <a class="twitter-timeline" href="https://twitter.com/hashtag/baggage" data-widget-id="576110384387612672">#baggage Tweets</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <!-- </div> -->
